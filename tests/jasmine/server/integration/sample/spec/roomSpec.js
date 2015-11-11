@@ -4,7 +4,7 @@ describe("Rooms", function() {
         this.name = "chat Room 1"
         this.room = new Room(this.name);
         spyOn(Rooms, "insert");
-        this.room.save();
+        fixtures();
     });
 
     it("should exist a Rooms collection", function() {
@@ -13,21 +13,6 @@ describe("Rooms", function() {
 
     it("should take name via constructor", function() {
         expect(this.room.name).toEqual(this.name);
-    });
-
-    it("should insert new Room to db", function() {
-        expect(Rooms.insert).toHaveBeenCalled();
-    });
-
-});
-
-describe("roomFixtures", function() {
-
-    beforeEach(function() {
-        spyOn(Rooms, "insert");
-        spyOn(Rooms, "find").and.returnValue({count: function() { return 0; }})
-
-        fixtures();
     });
 
     it("initializes the database with rooms", function() {
