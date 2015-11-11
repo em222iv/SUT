@@ -24,4 +24,8 @@ describe("Template:Home", function() {
         expect($("#rooms").children().first().children().first().text()).toBe(Rooms.findOne().name);
     });
 
+    it("should have #addRoomInput input field", function() {
+        expect($("#rooms").find('#addRoomInput')).toExist();
+    });
+
 });
