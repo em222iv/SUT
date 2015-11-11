@@ -29,12 +29,10 @@ describe("Template:Home", function() {
         expect($("#rooms").find('#addRoomButton')).toExist();
     });
 
-    it('should use click event on home template', function() {
+    it('should use click event on home template and increment counter by 1', function() {
 
         Session.set('counter', 0);
-
-        Template.home.fireEvent('click button');
-
+        Template.home.fireEvent('click #addRoomBUtton');
         expect(Session.get('counter')).to.be(1);
 
     });
