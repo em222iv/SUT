@@ -20,3 +20,19 @@ describe("Rooms", function() {
     });
 
 });
+
+describe("roomFixtures", function() {
+
+    beforeEach(function() {
+        spyOn(Rooms, "insert");
+        spyOn(Rooms, "find").and.returnValue({count: function() { return 0; }})
+
+        fixtures();
+    });
+
+    it("initializes the database with rooms", function() {
+        expect(Rooms.insert).toHaveBeenCalledWith({name: "chatRoom1"});
+        expect(Rooms.insert).toHaveBeenCalledWith({name: "chatRoom2"});
+    });
+
+});
