@@ -1,7 +1,7 @@
-describe("chatRooms", function() {
+describe("Rooms", function() {
 
-    it("should exist a chatRoom collection", function() {
-        expect(chatRooms);
+    it("should exist a Rooms collection", function() {
+        expect(Rooms);
     });
 
 });
