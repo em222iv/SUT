@@ -12,7 +12,7 @@ describe("Client: Rooms", function() {
 
 });
 
-describe("Template", function() {
+describe("Template:Home", function() {
 
     beforeEach(function() {
         Tracker.afterFlush(function(){
