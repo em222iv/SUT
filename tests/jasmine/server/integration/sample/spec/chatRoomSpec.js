@@ -13,6 +13,4 @@ describe("Rooms", function() {
         expect(Rooms);
     });
 
-
-
 });
