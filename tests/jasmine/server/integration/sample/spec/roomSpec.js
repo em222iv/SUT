@@ -36,3 +36,12 @@ describe("roomFixtures", function() {
     });
 
 });
+
+function fixtures() {
+    if(Rooms.find().count() !== 0) return;
+
+    var rooms = ["chatRoom1", "chatRoom2"];
+
+    rooms.forEach(function(rooms) { new Room(rooms).save(); });
+}
+
