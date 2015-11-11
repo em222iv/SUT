@@ -26,6 +26,7 @@ describe("Template:Home", function() {
 
     it("should have #addRoomInput input field", function() {
         expect($("#rooms").find('#addRoomInput')).toExist();
+        expect($("#rooms").find('#addRoomButton')).toExist();
     });
 
 });
