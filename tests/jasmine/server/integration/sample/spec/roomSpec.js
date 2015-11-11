@@ -23,10 +23,9 @@ describe("Rooms", function() {
 });
 
 function fixtures() {
-    if(Rooms.find().count() !== 0) return;
 
-    var rooms = ["chatRoom1", "chatRoom2"];
+    this.rooms = ["chatRoom1", "chatRoom2"];
 
-    rooms.forEach(function(rooms) { new Room(rooms).save(); });
+    this.rooms.forEach(function(room) { room = new Room(room).save(); });
 }
 
