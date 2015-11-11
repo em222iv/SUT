@@ -29,4 +29,13 @@ describe("Template:Home", function() {
         expect($("#rooms").find('#addRoomButton')).toExist();
     });
 
+    it('should use click event on home template', function() {
+
+        Session.set('counter', 0);
+
+        Template.home.fireEvent('click button');
+
+        expect(Session.get('counter')).to.be(1);
+
+    });
 });

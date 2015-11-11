@@ -65,6 +65,7 @@
         <item url="file://$USER_HOME$/.meteor/packages/htmljs/1.0.5/web.browser/visitors.js" />
         <item url="file://$USER_HOME$/.meteor/packages/htmljs/1.0.5/web.browser/preamble.js" />
         <item url="file://$USER_HOME$/.meteor/packages/http/1.1.1/web.browser/deprecated.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/xolvio_template-isolator/0.1.0/web.browser/packages/xolvio:template-isolator.js" />
         <item url="file://$USER_HOME$/.meteor/packages/http/1.1.1/web.browser/httpcall_common.js" />
         <item url="file://$USER_HOME$/.meteor/packages/http/1.1.1/web.browser/httpcall_client.js" />
         <item url="file://$USER_HOME$/.meteor/packages/id-map/1.0.4/web.browser/id-map.js" />
@@ -209,6 +210,7 @@
       <root url="file://$USER_HOME$/.meteor/packages/htmljs/1.0.5/web.browser/visitors.js" />
       <root url="file://$USER_HOME$/.meteor/packages/htmljs/1.0.5/web.browser/preamble.js" />
       <root url="file://$USER_HOME$/.meteor/packages/http/1.1.1/web.browser/deprecated.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/xolvio_template-isolator/0.1.0/web.browser/packages/xolvio:template-isolator.js" />
       <root url="file://$USER_HOME$/.meteor/packages/http/1.1.1/web.browser/httpcall_common.js" />
       <root url="file://$USER_HOME$/.meteor/packages/http/1.1.1/web.browser/httpcall_client.js" />
       <root url="file://$USER_HOME$/.meteor/packages/id-map/1.0.4/web.browser/id-map.js" />
