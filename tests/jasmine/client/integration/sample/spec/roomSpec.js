@@ -14,7 +14,7 @@ describe("Client: Rooms", function() {
 
 describe("Template:Home", function() {
 
-    beforeEach(function() {
+    beforeEach(function(done) {
         Tracker.afterFlush(function(){
             done();
         });

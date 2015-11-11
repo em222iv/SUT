@@ -1,4 +1,3 @@
-
 Meteor.startup(function () {
     //var globalObject=Meteor.isClient?window:global;
     //for(var property in globalObject){

@@ -4,7 +4,9 @@ describe("Rooms", function() {
         this.name = "chat Room 1"
         this.room = new Room(this.name);
         spyOn(Rooms, "insert");
-        fixtures();
+        resetDatabase();
+        loadDefaultFixtures();
+
     });
 
     it("should exist a Rooms collection", function() {
@@ -16,16 +18,10 @@ describe("Rooms", function() {
     });
 
     it("initializes the database with rooms", function() {
-        expect(Rooms.insert).toHaveBeenCalledWith({name: "chatRoom1"});
-        expect(Rooms.insert).toHaveBeenCalledWith({name: "chatRoom2"});
+        expect(Rooms.insert).toHaveBeenCalledWith({name: "testRoom1"});
+        expect(Rooms.insert).toHaveBeenCalledWith({name: "testRoom2"});
     });
 
 });
 
-function fixtures() {
-
-    this.rooms = ["chatRoom1", "chatRoom2"];
-
-    this.rooms.forEach(function(room) { room = new Room(room).save(); });
-}
 
