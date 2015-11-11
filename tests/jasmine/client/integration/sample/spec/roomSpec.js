@@ -11,3 +11,17 @@ describe("Client: Rooms", function() {
     });
 
 });
+
+describe("Template", function() {
+
+    beforeEach(function() {
+        Tracker.afterFlush(function(){
+            done();
+        });
+    });
+
+    it("should render rooms on home-template", function() {
+        expect($("#rooms").children().length).toBeGreaterThan(0)
+    });
+
+});
