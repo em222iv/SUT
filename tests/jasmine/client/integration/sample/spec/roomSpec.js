@@ -22,6 +22,7 @@ describe("Template:Home", function() {
 
     it("should render rooms on home-template", function() {
         expect($("#rooms").children().length).toBeGreaterThan(0)
+        expect($("#rooms").children().first().children().first()[0].id).toBe(Rooms.findOne()._id);
     });
 
 });
