@@ -15,6 +15,9 @@ describe("Client: Rooms", function() {
 describe("Template:Home", function() {
 
     beforeEach(function(done) {
+        this.name = "testing room"
+        this.room = new Room(this.name);
+        spyOn(Room, "insertRoom");
         Tracker.afterFlush(function(){
             done();
         });
@@ -31,9 +34,10 @@ describe("Template:Home", function() {
 
     it('should use click event on home template and increment counter by 1', function() {
 
-        Session.set('counter', 0);
+        var text = $('#addRoomInput');
+        text.val(text.val() + this.name);
         Template.home.fireEvent('click #addRoomButton');
-        expect(Session.get('counter')).toBe(1);
+        expect(Rooms.insert).toHaveBeenCalledWith({name: this.name});
 
     });
 });
