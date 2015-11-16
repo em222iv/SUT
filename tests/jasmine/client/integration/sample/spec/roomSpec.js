@@ -32,7 +32,7 @@ describe("Template:Home", function() {
     it('should use click event on home template and increment counter by 1', function() {
 
         Session.set('counter', 0);
-        Template.home.fireEvent('click button');
+        Template.home.fireEvent('click #addRoomButton');
         expect(Session.get('counter')).toBe(1);
 
     });
