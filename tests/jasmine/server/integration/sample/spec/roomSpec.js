@@ -21,8 +21,8 @@ describe("Rooms", function() {
         expect(Rooms.insert).toHaveBeenCalledWith({name: "testRoom2"});
     });
 
-    it("should exist update-event on Room", function() {
-        expect(this.room.update()).toBe(true);
+    it("should call server update-method", function() {
+        expect(Rooms.update).toHaveBeenCalledWith({name: this.name});
     });
 
 });
