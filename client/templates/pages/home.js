@@ -10,9 +10,7 @@ Template.home.events({
         var name = $('#addRoomInput').val();
         new Room(name).save();
     },
-    'click #addRoomButton': function () {
+    'click #updateRoomName': function () {
         event.preventDefault();
-        var name = $('#addRoomInput').val();
-        new Room(name).save();
-    },
+    }
 });

@@ -52,7 +52,7 @@ describe("Template:Home", function() {
         expect($( ".editRoomName" ).length).toEqual(Rooms.find().count());
     });
 
-    it('should update room name on input', function() {
+    it('should call update-event on input', function() {
         expect(Template.home.fireEvent('click #updateRoomName'));
     });
 
