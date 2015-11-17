@@ -22,7 +22,9 @@ describe("Rooms", function() {
     });
 
     it("should call server update-method", function() {
-        expect(Rooms.update).toHaveBeenCalledWith({name: this.name});
+        spyOn(Rooms,'update');
+        this.room.update(this.room);
+        expect(Rooms.update).toHaveBeenCalled();
     });
 
 });
