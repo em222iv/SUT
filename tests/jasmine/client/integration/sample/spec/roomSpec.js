@@ -47,4 +47,11 @@ describe("Template:Home", function() {
         expect($("#rooms").children().first().children().first().attr('placeholder')).toBe("testing room4");
     });
 
+    it("should exist an edit button for each room", function() {
+        expect($( ".editRoomName" ).each().length).toEqual(Rooms.find().count());
+    });
+
+
+
+
 });
