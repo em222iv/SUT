@@ -15,8 +15,6 @@ describe("Client: Rooms", function() {
 describe("Template:Home", function() {
 
     beforeEach(function(done) {
-        this.count =  $("#rooms").children().length;
-        //console.log(this.count);
         this.name = "testing room4"
         this.room = new Room(this.name);
         Tracker.afterFlush(function(){
@@ -39,4 +37,9 @@ describe("Template:Home", function() {
         text.val(this.name);
         expect(Template.home.fireEvent('click #addRoomButton'));
     });
+
+    it("should be a input tag for each room", function() {
+        expect($("#rooms").children().first().children().first().tagName).toBe('input');
+    });
+
 });
