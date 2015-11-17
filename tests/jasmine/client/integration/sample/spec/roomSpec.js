@@ -39,7 +39,7 @@ describe("Template:Home", function() {
     });
 
     it("should be a input tag for each room", function() {
-        expect($("#rooms").children().first().children().first().tagName).toBe('input');
+        expect($("#rooms").children().first().children().first().attr('type')).toBe('text');
     });
 
 });
