@@ -24,7 +24,8 @@ describe("Template:Home", function() {
     });
 
     it("should render rooms on home-template", function() {
-        expect($("#rooms").children().first().children().first().text()).toBe(Rooms.findOne().name);
+        var numberOfRooms = Rooms.find().count();
+        expect($("#rooms").children().length).toBe(numberOfRooms);
     });
 
     it("should have #addRoomInput input field and #addRoomButton", function() {
