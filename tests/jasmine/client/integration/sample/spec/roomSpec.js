@@ -43,4 +43,8 @@ describe("Template:Home", function() {
         expect($("#rooms").children().first().children().first().attr('type')).toBe('text');
     });
 
+    it("should be a placeholder with each rooms name", function() {
+        expect($("#rooms").children().first().children().first().attr('placeholder')).toBe("chat Room 1");
+    });
+
 });
