@@ -25,5 +25,4 @@ describe("Rooms", function() {
         expect(this.room.update()).toBe(true);
     });
 
-
 });
