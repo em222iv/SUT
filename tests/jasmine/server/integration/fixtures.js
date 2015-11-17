@@ -8,6 +8,14 @@ var Future = Npm.require('fibers/future');
 resetDatabase = function () {
     console.log('Resetting database');
 
+
+    var globalObject=Meteor.isClient?window:global;
+    for(var property in globalObject) {
+        var object = globalObject[property];
+        if (object instanceof Meteor.Collection) {
+            object.remove({});
+        }
+    }
     // safety check
     if (!process.env.IS_MIRROR) {
         console.error('velocityReset is not allowed outside of a mirror. Something has gone wrong.');

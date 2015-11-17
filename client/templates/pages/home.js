@@ -1,16 +1,13 @@
-Session.setDefault('counter', 0);
-
 Template.home.helpers({
     rooms: function(){
-        return Rooms.find({});
-    },
-    counter: function(){
-        return Session.get('counter');
+        return  Rooms.find({});
     }
 });
 
 Template.home.events({
     'click #addRoomButton': function () {
-        Session.set('counter', Session.get('counter') + 1);
+        event.preventDefault();
+        var name = $('#addRoomInput').val();
+        new Room(name).save();
     }
 });

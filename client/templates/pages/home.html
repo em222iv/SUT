@@ -1,11 +1,13 @@
 <template name="home">
-    <h2>homepage</h2>
-    <div id="rooms">
-        {{#each rooms}}
-            <div class="room">
-                <div id="{{_id}}">{{name}}</div>
-            </div>
-        {{/each}}
+    <div class="home">
+        <h2>homepage</h2>
+        <div id="rooms">
+            {{#each rooms}}
+                <div class="room">
+                    <div id="{{_id}}">{{name}}</div>
+                </div>
+            {{/each}}
+        </div>
         <input id="addRoomInput" type="text">
         <a id="addRoomButton" href="">Add Chat-Room</a>
     </div>

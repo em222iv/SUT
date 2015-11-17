@@ -1,12 +1,11 @@
 describe("Rooms", function() {
 
     beforeEach(function() {
-        this.name = "chat Room 1"
+        this.name = "chat Room 1";
         this.room = new Room(this.name);
         spyOn(Rooms, "insert");
         resetDatabase();
         loadDefaultFixtures();
-
     });
 
     it("should exist a Rooms collection", function() {
@@ -23,5 +22,3 @@ describe("Rooms", function() {
     });
 
 });
-
-

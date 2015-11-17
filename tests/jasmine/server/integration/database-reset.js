@@ -1,6 +1,6 @@
 if (process.env.IS_MIRROR) {
     Meteor.methods({
-        'loadFixtures': function(){
+        'loadFixtures': function () {
             console.log('Loading default fixtures');
             if (Rooms.find().count() === 0) {
 
@@ -16,6 +16,14 @@ if (process.env.IS_MIRROR) {
 
         'clearDB': function(){
             console.log('Clear DB');
+
+            var globalObject=Meteor.isClient?window:global;
+            for(var property in globalObject) {
+                var object = globalObject[property];
+                if (object instanceof Meteor.Collection) {
+                    object.remove({});
+                }
+            }
 
             var collectionsRemoved = 0;
             var db = Meteor.users.find()._mongo.db;
