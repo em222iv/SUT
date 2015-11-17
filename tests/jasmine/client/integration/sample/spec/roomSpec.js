@@ -49,7 +49,7 @@ describe("Template:Home", function() {
     });
 
     it('should call update-event on input', function() {
-        expect(Template.home.fireEvent('click #updateRoomName'));
+        expect(Template.home.fireEvent('input .updateRoomName'));
     });
 
 });
