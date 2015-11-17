@@ -15,7 +15,7 @@ describe("Client: Rooms", function() {
 describe("Template:Home", function() {
 
     beforeEach(function(done) {
-        this.name = "testing room4"
+        this.name = "testing room"
         this.room = new Room(this.name);
         Tracker.afterFlush(function(){
             FlowRouter.go('/');
@@ -29,8 +29,9 @@ describe("Template:Home", function() {
     });
 
     it("should have #addRoomInput input field and #addRoomButton", function() {
-        expect($(".home").find('#addRoomInput')).toExist();
-        expect($(".home").find('#addRoomButton')).toExist();
+        var home = $(".home");
+        expect(home.find('#addRoomInput')).toExist();
+        expect(home.find('#addRoomButton')).toExist();
     });
 
     it('should use click event on home template, no expectation, just checks that it exists', function() {
@@ -49,6 +50,10 @@ describe("Template:Home", function() {
 
     it("should exist an edit button for each room", function() {
         expect($( ".editRoomName" ).length).toEqual(Rooms.find().count());
+    });
+
+    it('should update room name on input', function() {
+        expect(Template.home.fireEvent('click #updateRoomName'));
     });
 
 });
