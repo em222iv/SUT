@@ -48,10 +48,7 @@ describe("Template:Home", function() {
     });
 
     it("should exist an edit button for each room", function() {
-        expect($( ".editRoomName" ).each().length).toEqual(Rooms.find().count());
+        expect($( ".editRoomName" ).length).toEqual(Rooms.find().count());
     });
-
-
-
 
 });
