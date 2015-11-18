@@ -56,14 +56,12 @@ describe("Template:Home", function() {
             expect(Template.home.fireEvent('click #addRoomButton'));
         });
 
-
         it('should call update-event on blur with empty string', function () {
-            expect(Template.home.fireEvent('blur .updateRoomName',this.room.id));
+            expect(Template.home.fireEvent('blur .updateRoomName'));
         });
 
         it('should call remove-event', function () {
-            expect(Template.home.fireEvent('click .removeRoom'));
+            expect(Template.home.fireEvent('click .removeRoom', this.room.id));
         });
     });
-
 });
