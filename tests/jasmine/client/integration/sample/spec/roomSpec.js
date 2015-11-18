@@ -55,6 +55,7 @@ describe("Template:Home", function() {
             var text = $('#addRoomInput');
             text.val(this.name);
             expect(Template.home.fireEvent('click #addRoomButton'));
+            expect(text.val("")).toBeEmpty();
         });
 
         it('should call update-event on blur with empty string', function () {
