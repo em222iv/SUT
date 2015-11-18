@@ -1,6 +1,9 @@
 Meteor.methods({
     insertRoom: function (name) {
-        // Insert a room into the collection
+        if(Rooms.findOne({name:name})) {
+            return;
+            //throw new Meteor.Error(1337, "Already Exists");
+        }
         Rooms.insert({
             name: name
         });

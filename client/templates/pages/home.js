@@ -6,10 +6,13 @@ Template.home.helpers({
 
 Template.home.events({
     'click #addRoomButton': function () {
+
         event.preventDefault();
         var name = $('#addRoomInput').val();
-        new Room(name).save();
-        $('#addRoomInput').val("");
+        if(name == ""){
+           return;
+        }
+        Meteor.call('insertRoom',name);
     },
     'blur .updateRoomName': function (e) {
         if(e == undefined){

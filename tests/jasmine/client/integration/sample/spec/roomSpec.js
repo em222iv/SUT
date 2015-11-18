@@ -52,12 +52,19 @@ describe("Template:Home", function() {
     describe("JS Events", function() {
 
         it('should use click event on home template, no expectation, just checks that it exists', function () {
+            spyOn(Rooms,'insert');
             var text = $('#addRoomInput');
-            text.val(this.name);
+            text.val("");
             expect(Template.home.fireEvent('click #addRoomButton'));
             expect(text.val("")).toBeEmpty();
         });
-
+        it('should use click event on home template, no expectation, just checks that it exists', function () {
+            spyOn(Rooms,'insert');
+            var text = $('#addRoomInput');
+            text.val(this.name);
+            Template.home.fireEvent('click #addRoomButton');
+            expect(Rooms.insert).not.toHaveBeenCalled();
+        });
         it('should call update-event on blur with empty string', function () {
             expect(Template.home.fireEvent('blur .updateRoomName'));
         });
@@ -73,6 +80,8 @@ describe("Template:Home", function() {
         it('should call remove-event', function () {
             expect(Template.home.fireEvent('click .removeRoom',{event: {target:{id: "KtT3aSvFRfmbsZ933"}}}));
         });
+
+
 
     });
 });
