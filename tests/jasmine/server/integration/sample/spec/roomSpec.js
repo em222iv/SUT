@@ -42,3 +42,13 @@ describe("Rooms", function() {
     });
 
 });
+describe("Rooms Rules", function() {
+
+    it("should not accept two rooms with same name", function() {
+        spyOn(Rooms,'insert');
+        this.room = new Room(this.name).save();
+        expect(this.room.save()).toThrow("it already exists");
+    });
+
+});
+
