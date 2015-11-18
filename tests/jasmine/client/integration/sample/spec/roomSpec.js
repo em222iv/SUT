@@ -49,9 +49,7 @@ describe("Template:Home", function() {
     });
 
     describe("JS Events", function() {
-
-
-
+        
         it('should use click event on home template, no expectation, just checks that it exists', function () {
             var text = $('#addRoomInput');
             text.val(this.name);

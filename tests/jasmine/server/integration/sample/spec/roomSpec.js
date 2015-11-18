@@ -31,4 +31,7 @@ describe("Rooms", function() {
         expect(Rooms.update).toHaveBeenCalledWith({_id: this.room.id}, {$set: {name: this.room.name}});
     });
 
+    it("should call client room delete-method", function() {
+        this.room.delete(this.room.id);
+    });
 });
