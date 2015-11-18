@@ -9,6 +9,7 @@ Template.home.events({
         event.preventDefault();
         var name = $('#addRoomInput').val();
         new Room(name).save();
+        $('#addRoomInput').val("");
     },
     'blur .updateRoomName': function (e) {
         if(e == undefined){
