@@ -11,6 +11,9 @@ Template.home.events({
         new Room(name).save();
     },
     'blur .updateRoomName': function (e) {
+        if(e == undefined){
+            return;
+        }
         event.preventDefault();
         console.log(e.target.value)
         new Room(e.target.value).update(e.target.id)

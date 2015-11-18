@@ -22,34 +22,46 @@ describe("Template:Home", function() {
             done();
         });
     });
+    describe("HTML elements", function() {
+        it("should render rooms on home-template", function() {
+            var numberOfRooms = Rooms.find().count();
+            expect($("#rooms").children().length).toBe(numberOfRooms);
+        });
+        it("should have #addRoomInput input field and #addRoomButton", function() {
+            var home = $(".home");
+            expect(home.find('#addRoomInput')).toExist();
+            expect(home.find('#addRoomButton')).toExist();
+        });
 
-    it("should render rooms on home-template", function() {
-        var numberOfRooms = Rooms.find().count();
-        expect($("#rooms").children().length).toBe(numberOfRooms);
+        it("should have .removeRoom element", function() {
+            var home = $(".home");
+            expect(home.find('.removeRoom')).toExist();
+        });
+
+        it("should be a input tag for each room", function() {
+            expect($("#rooms").children().first().children().first().attr('type')).toBe('text');
+        });
+
+        it("should be a placeholder with each rooms name", function() {
+            expect($("#rooms").children().first().children().first().attr('placeholder')).toBe("testing room");
+        });
+
     });
 
-    it("should have #addRoomInput input field and #addRoomButton", function() {
-        var home = $(".home");
-        expect(home.find('#addRoomInput')).toExist();
-        expect(home.find('#addRoomButton')).toExist();
-    });
+    describe("JS Events", function() {
 
-    it('should use click event on home template, no expectation, just checks that it exists', function() {
-        var text = $('#addRoomInput');
-        text.val(this.name);
-        expect(Template.home.fireEvent('click #addRoomButton'));
-    });
+        it('should use click event on home template, no expectation, just checks that it exists', function () {
+            var text = $('#addRoomInput');
+            text.val(this.name);
+            expect(Template.home.fireEvent('click #addRoomButton'));
+        });
 
-    it("should be a input tag for each room", function() {
-        expect($("#rooms").children().first().children().first().attr('type')).toBe('text');
-    });
 
-    it("should be a placeholder with each rooms name", function() {
-        expect($("#rooms").children().first().children().first().attr('placeholder')).toBe("testing room4");
-    });
+        it('should call update-event on blur with empty string', function () {
+            spyOn(Rooms,'update');
+            expect(Template.home.fireEvent('blur .updateRoomName'));
 
-    it('should call update-event on blur with empty string', function() {
-        expect(Template.home.fireEvent('blur .updateRoomName'));
+        });
     });
 
 });

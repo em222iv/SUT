@@ -17,7 +17,6 @@ describe("Rooms", function() {
     });
 
     it("should should have id", function() {
-
         expect(this.room.id).not.toEqual(undefined);
     });
 
