@@ -50,6 +50,8 @@ describe("Template:Home", function() {
 
     describe("JS Events", function() {
 
+
+
         it('should use click event on home template, no expectation, just checks that it exists', function () {
             var text = $('#addRoomInput');
             text.val(this.name);
@@ -61,7 +63,9 @@ describe("Template:Home", function() {
         });
 
         it('should call remove-event', function () {
-            expect(Template.home.fireEvent('click .removeRoom', this.room.id));
+            this.room = new Room("new Room");
+            expect(Template.home.fireEvent('click .removeRoom',{event: {target: this.room.id}}));
         });
     });
 });
+
