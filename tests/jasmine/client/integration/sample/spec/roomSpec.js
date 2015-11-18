@@ -48,7 +48,7 @@ describe("Template:Home", function() {
         expect($("#rooms").children().first().children().first().attr('placeholder')).toBe("testing room4");
     });
 
-    it('should call update-event on blur', function() {
+    it('should call update-event on blur with empty string', function() {
         expect(Template.home.fireEvent('blur .updateRoomName'));
     });
 
