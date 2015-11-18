@@ -17,6 +17,7 @@ describe("Template:Home", function() {
     beforeEach(function(done) {
         this.name = "testing room"
         this.room = new Room(this.name);
+        this.room1 = Rooms.findOne();
         Tracker.afterFlush(function(){
             FlowRouter.go('/');
             done();
@@ -34,8 +35,8 @@ describe("Template:Home", function() {
         });
 
         it("should have .removeRoom element", function() {
-            var home = $(".home");
-            expect(home.find('.removeRoom')).toExist();
+            var room = $(".room");
+            expect(room.find('.removeRoom')).toExist();
         });
 
         it("should be a input tag for each room", function() {
@@ -43,7 +44,7 @@ describe("Template:Home", function() {
         });
 
         it("should be a placeholder with each rooms name", function() {
-            expect($("#rooms").children().first().children().first().attr('placeholder')).toBe("testing room");
+            expect($("#rooms").children().first().children().first().attr('placeholder')).toBe(this.room1.name);
         });
 
     });
@@ -60,10 +61,18 @@ describe("Template:Home", function() {
             expect(Template.home.fireEvent('blur .updateRoomName'));
         });
 
-        it('should call remove-event', function () {
-            this.room = new Room("new Room");
-            expect(Template.home.fireEvent('click .removeRoom',{event: {target:{id: this.room.id}}}));
+        it('should call update-event', function () {
+            expect(Template.home.fireEvent('blur .updateRoomName',{event: {target:{id: this.room1._id,value: "updatedName"}}}));
         });
+
+        it('should be updated name on first element', function () {
+            expect($("#rooms").children().first().children().first().attr('placeholder')).toBe(Rooms.findOne({ _id: this.room1._id}).name);
+        });
+
+        it('should call remove-event', function () {
+            expect(Template.home.fireEvent('click .removeRoom',{event: {target:{id: "KtT3aSvFRfmbsZ933"}}}));
+        });
+
     });
 });
 

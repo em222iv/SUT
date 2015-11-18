@@ -15,11 +15,9 @@ Template.home.events({
             return;
         }
         event.preventDefault();
-        console.log(e)
         new Room(e.target.value).update(e.target.id)
     },
-    'click .removeRoom': function (e) {
-        console.log(e);
-        new Room(e.target.value).delete(e.target.id)
+    'click .removeRoom': function () {
+        new Room().delete(this._id)
     }
 });
