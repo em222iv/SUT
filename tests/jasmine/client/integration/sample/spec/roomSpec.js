@@ -51,23 +51,6 @@ describe("Template:Home", function() {
 
     describe("JS Events", function() {
 
-        it('should use click event on home template, no expectation, just checks that it exists', function () {
-            spyOn(Rooms,'insert');
-            var text = $('#addRoomInput');
-            text.val("");
-            expect(Template.home.fireEvent('click #addRoomButton'));
-            expect(text.val("")).toBeEmpty();
-        });
-        it('should use click event on home template, no expectation, just checks that it exists', function () {
-            spyOn(Rooms,'insert');
-            var text = $('#addRoomInput');
-            text.val(this.name);
-            Template.home.fireEvent('click #addRoomButton');
-            expect(Rooms.insert).not.toHaveBeenCalled();
-        });
-        it('should call update-event on blur with empty string', function () {
-            expect(Template.home.fireEvent('blur .updateRoomName'));
-        });
 
         it('should call update-event', function () {
             expect(Template.home.fireEvent('blur .updateRoomName',{event: {target:{id: this.room1._id,value: "updatedName"}}}));
@@ -75,10 +58,6 @@ describe("Template:Home", function() {
 
         it('should be updated name on first element', function () {
             expect($("#rooms").children().first().children().first().attr('placeholder')).toBe(Rooms.findOne({ _id: this.room1._id}).name);
-        });
-
-        it('should call remove-event', function () {
-            expect(Template.home.fireEvent('click .removeRoom',{event: {target:{id: "KtT3aSvFRfmbsZ933"}}}));
         });
 
 
