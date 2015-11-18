@@ -58,9 +58,11 @@ describe("Template:Home", function() {
 
 
         it('should call update-event on blur with empty string', function () {
-            spyOn(Rooms,'update');
-            expect(Template.home.fireEvent('blur .updateRoomName'));
+            expect(Template.home.fireEvent('blur .updateRoomName',this.room.id));
+        });
 
+        it('should call remove-event', function () {
+            expect(Template.home.fireEvent('click .removeRoom'));
         });
     });
 
