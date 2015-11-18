@@ -5,8 +5,8 @@ Meteor.methods({
             name: name
         });
     },
-    updateRoom:function(room) {
-        console.log(room);
-        Rooms.update({_id: room.id}, {$set: {name: room.name}});
+    updateRoom:function(id,name) {
+        console.log(id, name);
+        Rooms.update({_id: id}, {$set: {name: name}});
     }
 });

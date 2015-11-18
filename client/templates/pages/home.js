@@ -12,7 +12,7 @@ Template.home.events({
     },
     'blur .updateRoomName': function (e) {
         event.preventDefault();
-        console.log(e.target.id)
-
-    }
+        console.log(e.target.value)
+        new Room(e.target.value).update(e.target.id)
+    },
 });

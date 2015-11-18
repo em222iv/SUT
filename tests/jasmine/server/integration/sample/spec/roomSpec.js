@@ -16,6 +16,11 @@ describe("Rooms", function() {
         expect(this.room.name).toEqual(this.name);
     });
 
+    it("should should have id", function() {
+
+        expect(this.room.id).not.toEqual(undefined);
+    });
+
     it("initializes the database with rooms", function() {
         expect(Rooms.insert).toHaveBeenCalledWith({name: "testRoom1"});
         expect(Rooms.insert).toHaveBeenCalledWith({name: "testRoom2"});
@@ -23,8 +28,8 @@ describe("Rooms", function() {
 
     it("should call server update-method", function() {
         spyOn(Rooms,'update');
-        var room = Rooms.findOne();
-        expect(Rooms.update).toHaveBeenCalledWith(Rooms.findOne());
+        this.room.update(this.room.id);
+        expect(Rooms.update).toHaveBeenCalledWith({_id: this.room.id}, {$set: {name: this.room.name}});
     });
 
 });
