@@ -20,6 +20,6 @@ Template.home.events({
     },
     'click .removeRoom': function (e) {
         console.log(e);
-        //Meteor.call("removeRoom", e);
+        new Room(e.target.value).delete(e.target.id)
     }
 });

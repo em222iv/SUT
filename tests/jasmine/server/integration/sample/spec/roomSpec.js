@@ -38,6 +38,6 @@ describe("Rooms", function() {
     it("should call server remove-method with id and remove it", function() {
         spyOn(Rooms,'remove');
         this.room.delete(this.room.id);
-        expect(Rooms.remove).toHaveBeenCalledWith({_id: this.room.id});
+        expect(Rooms.remove).toHaveBeenCalledWith(this.room.id);
     });
 });

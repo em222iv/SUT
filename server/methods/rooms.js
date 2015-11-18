@@ -8,5 +8,8 @@ Meteor.methods({
     updateRoom:function(id,name) {
         console.log(id, name);
         return Rooms.update({_id: id}, {$set: {name: name}});
+    },
+    removeRoom:function(id) {
+        Rooms.remove(id);
     }
 });
