@@ -47,6 +47,11 @@ describe("Template:Home", function() {
             expect($("#rooms").children().first().children().first().attr('placeholder')).toBe(this.room1.name);
         });
 
+        it("should be exist a chatroom-page link for each Room", function() {
+            var link = $(".roomLink");
+            expect(link.length).toBe(Rooms.find().count());
+        });
+
     });
 
     describe("JS Events", function() {
