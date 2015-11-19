@@ -17,7 +17,6 @@ describe("Template:Home", function() {
     beforeEach(function(done) {
         this.name = "testing room"
         this.room = new Room(this.name);
-        this.room1 = Rooms.findOne();
         Tracker.afterFlush(function(){
             FlowRouter.go('/');
             done();
@@ -43,10 +42,6 @@ describe("Template:Home", function() {
             expect($("#rooms").children().first().children().first().attr('type')).toBe('text');
         });
 
-        it("should be a placeholder with each rooms name", function() {
-            expect($("#rooms").children().first().children().first().attr('placeholder')).toBe(this.room1.name);
-        });
-
         it("should be exist a chatroom-page link for each Room", function() {
             var link = $(".roomLink");
             expect(link.length).toBe(Rooms.find().count());
@@ -56,16 +51,21 @@ describe("Template:Home", function() {
 
     describe("JS Events", function() {
 
+        beforeEach(function(done) {
+            this.room1 = Rooms.findOne();
+            Tracker.afterFlush(function(){
+                FlowRouter.go('/');
+                done();
+            });
+        });
 
         it('should call update-event', function () {
             expect(Template.home.fireEvent('blur .updateRoomName',{event: {target:{id: this.room1._id,value: "updatedName"}}}));
         });
 
         it('should be updated name on first element', function () {
-            expect($("#rooms").children().first().children().first().attr('placeholder')).toBe(Rooms.findOne({ _id: this.room1._id}).name);
+            expect($("#rooms").children().first().children().first().val()).toBe(Rooms.findOne({ _id: this.room1._id}).name);
         });
-
-
 
     });
 });
